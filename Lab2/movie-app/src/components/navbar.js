@@ -5,9 +5,10 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const NavigationBar = () => {
   return (
-    //Create a responsive navigation bar
+    //Ex5. Create a responsive navigation bar
     //Use React Router's Link to handle navigation
-    //between different pages
+    //between different pages.
+        //Ex5. Dark theme & routing
         <Navbar bg="dark" data-bs-theme="dark">
           <Container>
             <Navbar.Brand href="/">Navbar</Navbar.Brand>

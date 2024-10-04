@@ -12,15 +12,15 @@ import NavigationBar from './components/navbar';
 
 function App() {
   return (
-    //Ex5. Set up routing - create each link
+    //Ex5. Set up routing - calling navbar.js links
     <Router>
     <NavigationBar />
     <Routes>
+      {/**Ex6. Display the Footer component when the URL changes */}
       <Route path="/home" element={<Content />} />
-      <Route path="/read" element={<h1>Read Component</h1>} />
-      <Route path="/create" element={<h1>Create Component</h1>} />
+      <Route path="/read" element={<Footer /> } />
+      <Route path="/create" element={<Header /> } />
     </Routes>
-    <Footer />
   </Router>
   );
 }
