@@ -13,7 +13,7 @@ const NavigationBar = () => {
           <Container>
             <Navbar.Brand href="/">Navbar</Navbar.Brand>
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
+              {/**Lab3. Task 1 - Update the navbar to include new components */}
               <Nav.Link href="/create">Create</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
             </Nav>
