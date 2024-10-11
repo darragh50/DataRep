@@ -16,6 +16,7 @@ const NavigationBar = () => {
               {/**Lab3. Task 1 - Update the navbar to include new components */}
               <Nav.Link href="/create">Create</Nav.Link>
               <Nav.Link href="/read">Read</Nav.Link>
+
             </Nav>
           </Container>
       </Navbar>
