@@ -8,7 +8,8 @@ const Movies = (props) => {
     return props.myMovies.map(
         (movie) => {
             //Pass individual movie
-            return <MovieItem myMovie={movie}/>
+            //Create unique key identifier to remove errors (key= onwards)
+            return <MovieItem myMovie={movie} key={movie.imdbID}/>
         }
     )
 
