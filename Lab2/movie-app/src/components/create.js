@@ -1,11 +1,12 @@
 import { useState } from "react";
 
 function Create() {
+  //Set default values to empty
   const [title, setTitle] = useState('');
   const [year, setYear] = useState('');
   const [poster, setPoster] = useState('');
 
-
+  //handleSubmit used to log all entries to the console
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(title);
@@ -17,7 +18,7 @@ function Create() {
     <div>
       <h2>This is my Create Component.</h2>
       <form onSubmit={handleSubmit}>
-        {/**Movie title  */}
+        {/**Movie title - form to set title to user entry  */}
         <div className="form-group">
           <label>Add Movie Title: </label>
           <input type="text"
@@ -26,7 +27,7 @@ function Create() {
             onChange={(e) => { setTitle(e.target.value) }}
           />
         </div>
-        {/**Movie year  */}
+        {/**Movie year - form to set year to user entry  */}
         <div className="form-group">
           <label>Add Movie Year: </label>
           <input type="text"
@@ -35,7 +36,7 @@ function Create() {
             onChange={(e) => { setYear(e.target.value) }}
           />
         </div>
-        {/**Movie poster  */}
+        {/**Movie poster - form to set poster to user entry  */}
         <div className="form-group">
           <label>Add Movie Poster: </label>
           <input type="text"
@@ -44,6 +45,7 @@ function Create() {
             onChange={(e) => { setPoster(e.target.value) }}
           />
         </div>
+        {/**Button the can be clicked to send entry to handleSubmit */}
         <input type="submit" value="Add Movie " />
       </form>
     </div>
