@@ -2,19 +2,22 @@ import { useState } from "react";
 
 function Create() {
   const [title, setTitle] = useState('');
+  const [year, setYear] = useState('');
+  const [poster, setPoster] = useState('');
 
-  //Handle new events from the button click and log information
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(title);
+    console.log(year);
+    console.log(poster);
   }
 
-  //Return all values referenced in handleSubmit()
   return (
     <div>
       <h2>This is my Create Component.</h2>
-      {/**Form that will upload data to a server */}
       <form onSubmit={handleSubmit}>
+        {/**Movie title  */}
         <div className="form-group">
           <label>Add Movie Title: </label>
           <input type="text"
@@ -23,7 +26,25 @@ function Create() {
             onChange={(e) => { setTitle(e.target.value) }}
           />
         </div>
-        <input type="submit" value="Add Movie" />
+        {/**Movie year  */}
+        <div className="form-group">
+          <label>Add Movie Year: </label>
+          <input type="text"
+            className="form-control"
+            value={year}
+            onChange={(e) => { setYear(e.target.value) }}
+          />
+        </div>
+        {/**Movie poster  */}
+        <div className="form-group">
+          <label>Add Movie Poster: </label>
+          <input type="text"
+            className="form-control"
+            value={poster}
+            onChange={(e) => { setPoster(e.target.value) }}
+          />
+        </div>
+        <input type="submit" value="Add Movie " />
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 //Lab 3. Task 1. Create new function components
 //Import movies component
 import Movies from "./movies";
+//Axios is a Promise-based HTTP client
 import axios from "axios";
 import { useEffect,useState } from "react";
 
@@ -10,6 +11,7 @@ const Read = () => {
 
       //2c. useEffect to synchronize a component with an external system
       useEffect(() => {
+        //Axios used for fetching data in react applications
         axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
           .then((response) => {
             console.log(response.data.movies);
