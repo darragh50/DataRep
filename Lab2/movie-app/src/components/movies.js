@@ -1,5 +1,4 @@
 import MovieItem from "./movieitem";
-import read from './read'
 
 //Create new function component
 //Create constant Movies variable
