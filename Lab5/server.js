@@ -20,6 +20,36 @@ app.get('/hello/:name/:surname', (req, res) => {
     res.send(`Hello ${name}  ${surname}`);
 });
 
+//Create a route /api/movies that returns a list of movie objects in JSON format
+app.get('/api/movies', (req, res) => {
+    const myMovies = [
+        {
+            "Title": "Avengers: Infinity War",
+            "Year": "2018",
+            "imdbID": "tt4154756",
+            "Type": "movie",
+            "Poster": "https://example.com/poster1.jpg"
+        },
+        {
+            "Title": "Captain America: Civil War",
+            "Year": "2016",
+            "imdbID": "tt3498820",
+            "Type": "movie",
+            "Poster": "https://example.com/poster2.jpg"
+        },
+        {
+            "Title": "World War Z",
+            "Year": "2013",
+            "imdbID": "tt0816711",
+            "Type": "movie",
+            "Poster": "https://example.com/poster3.jpg"
+        }
+    ];
+    //Return JSON response
+    res.json({ myMovies });
+    //Add status code to the resposnse
+    res.status(201).json({ myMovies });
+});
 
 //Server listening on port ${port}
 app.listen(port, () => {
