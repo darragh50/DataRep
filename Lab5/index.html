@@ -1,7 +1,15 @@
 <html>
 <body>
     <!--Add a form with text fields for firstname and lastname-->
+    <h1>GET Method</h1>
     <form action="/name" method="GET">
+        First name: <input type="text" name="firstname"><br>
+        Last name: <input type="text" name="lastname"><br>
+        <input type="submit" value="Submit">
+    </form>
+    <!--Modify index.html to include a POST form-->
+    <h1>POST Method</h1>
+    <form action="/name" method="POST">
         First name: <input type="text" name="firstname"><br>
         Last name: <input type="text" name="lastname"><br>
         <input type="submit" value="Submit">

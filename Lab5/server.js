@@ -2,6 +2,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+//(MAKE SURE THESE 3 LINES OF CODE ARE ON TOP)
+//After installing body-parser to handle POST requests - Add body-parser middleware
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//Serve static assets: Set up middleware to serve all static files (CSS, JS, etc.) from a public directory
+app.use(express.static('public'));
+
 //Desired message to send to server
 app.get('/', (req, res) => {
     res.send('Welcome to Data Respresentation & Querying');
@@ -62,8 +70,12 @@ app.get('/name', (req, res) => {
     res.send(`Hello ${firstname} ${lastname}`);
 });
 
-//Serve static assets: Set up middleware to serve all static files (CSS, JS, etc.) from a public directory
-app.use(express.static('public'));
+//Handle POST request - change app.get to app.post - change req.query to req.body
+app.post('/name', (req, res) => {
+    const firstname = req.body.firstname;
+    const lastname = req.body.lastname;
+    res.send(`Hello ${firstname} ${lastname}`);
+});
 
 //Server listening on port ${port}(3000) -- set on line 3
 app.listen(port, () => {
