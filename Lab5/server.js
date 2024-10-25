@@ -22,7 +22,7 @@ app.get('/hello/:name/:surname', (req, res) => {
 
 //Create a route /api/movies that returns a list of movie objects in JSON format
 app.get('/api/movies', (req, res) => {
-    const myMovies = [
+    const movies = [
         {
             "Title": "Avengers: Infinity War",
             "Year": "2018",
@@ -45,11 +45,18 @@ app.get('/api/movies', (req, res) => {
             "Poster": "https://example.com/poster3.jpg"
         }
     ];
-    //Return JSON response
-    res.json({ myMovies });
-    //Add status code to the resposnse
-    res.status(201).json({ myMovies });
+    //Return JSON response and add status code to the resposnse
+    res.status(200).json({ myMovies:movies });
 });
+
+//Serve the index.HTML file
+const path = require('path');
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+//Serve static assets: Set up middleware to serve all static files (CSS, JS, etc.) from a public directory
+app.use(express.static('public'));
 
 //Server listening on port ${port}
 app.listen(port, () => {
