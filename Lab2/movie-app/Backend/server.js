@@ -52,6 +52,9 @@ app.get('/api/movies', (req, res) => {
 
 //Send a response to the client if the post was successful 
 app.post('/api/movies', (req, res)=>{
+    //Print to console
+    console.log("Movies: " + req.body.title);
+    //Print to server
     res.send("movie recieved");
 })
 
