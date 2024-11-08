@@ -12,7 +12,9 @@ const Read = () => {
       //2c. useEffect to synchronize a component with an external system
       useEffect(() => {
         //Axios used for fetching data in react applications. Fetching data from an API below
-        axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
+        //axios.get('https://jsonblob.com/api/jsonblob/1287718524221775872')
+        //Lab5. Ex4. Modify the React app to fetch the JSON data from the Node/Express server.
+        axios.get('http://localhost:4000/api/movies')
           .then((response) => {
             console.log(response.data.movies);
             setMovies(response.data.movies);
