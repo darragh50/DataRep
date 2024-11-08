@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 function Create() {
   //Set default values to empty
@@ -6,14 +7,38 @@ function Create() {
   const [year, setYear] = useState('');
   const [poster, setPoster] = useState('');
 
+  /*
   //handleSubmit used to log all entries to the console
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(title);
     console.log(year);
     console.log(poster);
-  }
+  }*/
 
+ //Lab6. Ex5. Modify handleSubmit
+ const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  //Print variables 
+  console.log(`Title: ${title}, Year: ${year}, Poster: ${poster}`);
+  
+  //Variable movie and its contents
+  const movie = {
+    title: title,
+    year: year,
+    poster: poster
+  };
+  
+  //Axios makes a http request to localhost:4000/api/movies
+  axios.post('http://localhost:4000/api/movies', movie)
+    //One funtion to run when a promise is fulfilled, (.then) and one funtion to run when a promise is rejected (.catch)
+    //Res used to send back the desired HTTP response 
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err.data));
+};
+
+//Information to be returned to the website
   return (
     <div>
       <h2>This is my Create Component.</h2>

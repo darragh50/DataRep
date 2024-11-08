@@ -1,12 +1,13 @@
 //Create a server running on port 4000
 const express = require('express');
 const app = express();
+//Set port number
 const port = 4000;
 
+//Enable CORS for your server
 const cors = require('cors');
 app.use(cors());
 
-//Enable CORS for your server
 //This middleware setup allows your frontend app (React) to make API requests to the backend (Express) without encountering CORS-related issues
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -14,6 +15,11 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
+//Add a body-parser middleware
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 //Return the JSON data when a GET request is made to /api/movies
 app.get('/api/movies', (req, res) => {
