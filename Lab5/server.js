@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-
 //(MAKE SURE THESE 3 LINES OF CODE ARE ON TOP)
 //After installing body-parser to handle POST requests - Add body-parser middleware
 const bodyParser = require('body-parser');
